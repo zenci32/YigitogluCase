@@ -1,0 +1,40 @@
+﻿
+@model List<YigitogluCase.Models.Makale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<a href="/Makale/MakaleEkle" class="btn btn-primary">Yeni Makale Ekle</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Makale Başlık</th>
+            <th>Makale Başlık</th>
+            <th>Makale İçerik</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var makale in Model)
+        {
+            <tr>
+                <td>@makale.Baslik</td>
+                <td>@makale.Kategori.Adi</td>
+                <td>@makale.Icerik</td>
+                
+                <td>
+                    <a href="/Makale/MakaleGetir/@makale.MakaleId" class="btn btn-success">Güncelle</a>
+                </td>
+                <td>
+                    <a href="/Makale/MakaleSil/@makale.MakaleId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
